@@ -1,0 +1,12 @@
+#
+# メインコンテナ
+#
+main:
+  build: .
+
+  volumes:
+   - .:/products
+
+  ports:
+    - "3000:3000"
+
