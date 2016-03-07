@@ -12,6 +12,8 @@ RUN apt-get update \
     zip \
     nginx \
     supervisor \
+    dnsmasq \
+    dnsutils \
 &&  apt-get clean \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
