@@ -10,6 +10,7 @@ RUN apt-get update \
 &&  apt-get -y upgrade \
 &&  apt-get -y --force-yes install \
     zip \
+    nginx \
 &&  apt-get clean \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
