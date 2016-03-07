@@ -4,23 +4,31 @@
 version: '2'
 services:
   server:
-    image: gendosu/ubuntu-consul
+    build: .
+    # image: gendosu/ubuntu-consul
     command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -config-dir /etc/consul.d
 
   server2:
-    image: gendosu/ubuntu-consul
+    build: .
+    # image: gendosu/ubuntu-consul
     links:
       - server
     command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
 
   client1:
-    image: gendosu/ubuntu-consul
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    # image: gendosu/ubuntu-consul
     links:
       - server
-    command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+    command: /usr/bin/supervisord -n
 
   client2:
-    image: gendosu/ubuntu-consul
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    # image: gendosu/ubuntu-consul
     links:
       - server
-    command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+    command: /usr/bin/supervisord -n
