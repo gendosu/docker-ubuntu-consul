@@ -2,23 +2,23 @@
 # メインコンテナ
 #
 server:
-  build: .
+  image: gendosu/ubuntu-consul
   command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -config-dir /etc/consul.d
 
 server2:
-  build: .
+  image: gendosu/ubuntu-consul
   links:
     - server
   command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
 
 client1:
-  build: .
+  image: gendosu/ubuntu-consul
   links:
     - server
   command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
 
 client2:
-  build: .
+  image: gendosu/ubuntu-consul
   links:
     - server
   command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
