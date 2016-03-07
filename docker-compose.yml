@@ -17,10 +17,10 @@ services:
     image: gendosu/ubuntu-consul
     links:
       - server
-    command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+    command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
 
   client2:
     image: gendosu/ubuntu-consul
     links:
       - server
-    command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+    command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
