@@ -16,7 +16,8 @@ RUN apt-get update \
 RUN wget https://releases.hashicorp.com/consul/0.6.3/consul_0.6.3_linux_amd64.zip \
 &&  unzip consul_0.6.3_linux_amd64.zip \
 &&  mv consul /usr/local/bin \
-&&  rm consul_0.6.3_linux_amd64.zip
+&&  rm consul_0.6.3_linux_amd64.zip \
+&&  mkdir -p /etc/consul.d
 
 # RUN mkdir -p /products
 # WORKDIR /products

@@ -1,12 +1,25 @@
 #
 # メインコンテナ
 #
-main:
+server:
   build: .
+  command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -config-dir /etc/consul.d
 
-  volumes:
-   - .:/products
+server2:
+  build: .
+  links:
+    - server
+  command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
 
-  ports:
-    - "3000:3000"
+client1:
+  build: .
+  links:
+    - server
+  command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+
+client2:
+  build: .
+  links:
+    - server
+  command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
 
