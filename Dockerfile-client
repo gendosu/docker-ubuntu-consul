@@ -25,3 +25,4 @@ RUN mkdir -p /var/log/consul
 
 ADD supervisor/conf.d/consul-agent.conf /etc/supervisor/conf.d
 ADD supervisor/conf.d/nginx.conf /etc/supervisor/conf.d
+ADD consul.d/nginx.json /etc/consul.d
