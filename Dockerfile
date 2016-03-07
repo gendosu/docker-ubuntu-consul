@@ -19,10 +19,3 @@ RUN wget https://releases.hashicorp.com/consul/0.6.3/consul_0.6.3_linux_amd64.zi
 &&  rm consul_0.6.3_linux_amd64.zip \
 &&  mkdir -p /etc/consul.d
 
-# RUN mkdir -p /products
-# WORKDIR /products
-
-# ADD Gemfile /products/Gemfile
-# ADD Gemfile.lock /products/Gemfile.lock
-#
-# RUN eval "$(rbenv init -)"; bundle
