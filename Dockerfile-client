@@ -9,3 +9,4 @@ MAINTAINER Gen Takahashi "gendosu@gmail.com"
 ADD supervisor/conf.d/consul-agent-client.conf /etc/supervisor/conf.d
 ADD supervisor/conf.d/nginx.conf /etc/supervisor/conf.d
 ADD consul.d/nginx.json /etc/consul.d
+ADD consul.d/event.json /etc/consul.d
