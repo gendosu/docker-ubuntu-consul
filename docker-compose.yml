@@ -2,18 +2,33 @@
 # メインコンテナ
 #
 version: '2'
+
 services:
   server:
-    build: .
+    dns:
+      - "127.0.0.1"
+      - "8.8.8.8"
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+      - "8500:8500"
+      - "8600:8600"
+    build:
+      context: .
+      dockerfile: Dockerfile-server-master
     # image: gendosu/ubuntu-consul
-    command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -config-dir /etc/consul.d
+    # command: consul agent -server -bootstrap-expect 1 -data-dir /tmp/consul -node=agent-one -config-dir /etc/consul.d
+    command: /usr/bin/supervisord -n
 
   server2:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-server-slave
     # image: gendosu/ubuntu-consul
     links:
       - server
-    command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+    # command: consul agent -server -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+    command: /usr/bin/supervisord -n
 
   client1:
     build:
@@ -22,6 +37,7 @@ services:
     # image: gendosu/ubuntu-consul
     links:
       - server
+    # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
     command: /usr/bin/supervisord -n
 
   client2:
@@ -31,4 +47,5 @@ services:
     # image: gendosu/ubuntu-consul
     links:
       - server
+    # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
     command: /usr/bin/supervisord -n

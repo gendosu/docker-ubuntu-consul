@@ -1,0 +1,9 @@
+# 本体
+#
+# VERSION               0.0.1
+
+FROM      gendosu/ubuntu-consul
+
+MAINTAINER Gen Takahashi "gendosu@gmail.com"
+
+ADD supervisor/conf.d/consul-agent-server-slave.conf /etc/supervisor/conf.d

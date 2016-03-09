@@ -1,0 +1,16 @@
+# 本体
+#
+# VERSION               0.0.1
+
+FROM      gendosu/ubuntu-consul
+
+MAINTAINER Gen Takahashi "gendosu@gmail.com"
+
+ADD supervisor/conf.d/consul-agent-server-master.conf /etc/supervisor/conf.d
+ADD supervisor/conf.d/dnsmasq.conf /etc/supervisor/conf.d
+
+RUN echo "server=/consul/127.0.0.1#8600" >> /etc/dnsmasq.conf
+RUN echo "strict-order" >> /etc/dnsmasq.conf
+
+RUN echo "dns-nameservers 127.0.0.1" >> /etc/network/interfaces.d/localhost.conf
+RUN echo "nameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/localhost.conf
