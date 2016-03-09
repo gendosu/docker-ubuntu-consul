@@ -1,0 +1,17 @@
+src: http://server/testdir.tgz
+checksum: f728e0ed67162aa26c25b9790380b3f7
+dest: /root/app
+commands:
+  pre:
+    - echo 'staring deploy'
+  post:
+    - echo 'deploy done'
+    - 'supervisorctl restart nginx'
+  success:
+    - echo 'deploy success'
+  failure:
+    - echo 'deploy failed!!'
+    - cat >> /root/failure.log
+excludes:
+  - "*.pid"
+  - "*.socket"

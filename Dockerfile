@@ -23,3 +23,5 @@ RUN wget https://releases.hashicorp.com/consul/0.6.3/consul_0.6.3_linux_amd64.zi
 &&  rm consul_0.6.3_linux_amd64.zip \
 &&  mkdir -p /etc/consul.d \
 &&  mkdir -p /var/log/consul
+
+ADD stretcher /usr/local/bin
