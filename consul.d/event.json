@@ -1,7 +1,9 @@
 {
-  "watches": [{
-    "type": "event",
-    "name": "deploy",
-    "handler": "/usr/local/bin/stretcher"
-  }]
+  "watches": [
+    {
+      "type": "event",
+      "name": "deploy",
+      "handler": "/usr/local/bin/stretcher"
+    }
+  ]
 }
