@@ -1,7 +1,6 @@
 {
   "service": {
     "name": "web",
-    "service": "production",
     "tags": [ "nginx", "unicorn" ],
     "port": 80,
     "check": {
