@@ -1,7 +1,7 @@
 {
   "service": {
-    "name": "web",
-    "tags": [ "nginx", "unicorn" ],
+    "name": "nginx",
+    "tags": [ "clustor1" ],
     "port": 80,
     "check": {
       "script": "curl http://127.0.0.1:80/ >/dev/null 2>&1",
