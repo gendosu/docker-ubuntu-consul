@@ -1,7 +1,8 @@
 {
   "service": {
     "name": "web",
-    "tags": [ "nginx" ],
+    "service": "production",
+    "tags": [ "nginx", "unicorn" ],
     "port": 80,
     "check": {
       "script": "curl http://127.0.0.1:80/ >/dev/null 2>&1",

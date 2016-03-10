@@ -3,7 +3,11 @@
     {
       "type": "event",
       "name": "deploy",
-      "handler": "/usr/local/bin/stretcher"
+      "handler": "echo 'event event deploy' >> /root/event.log; /usr/local/bin/stretcher"
+    },
+    {
+      "type": "nodes",
+      "handler": "/root/service_handler.sh nodes"
     }
   ]
 }

@@ -50,3 +50,23 @@ services:
       - server
     # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
     command: /usr/bin/supervisord -n
+
+  # client3:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-client
+  #   # image: gendosu/ubuntu-consul
+  #   links:
+  #     - server
+  #   # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+  #   command: /usr/bin/supervisord -n
+  #
+  # client4:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-client
+  #   # image: gendosu/ubuntu-consul
+  #   links:
+  #     - server
+  #   # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+  #   command: /usr/bin/supervisord -n
