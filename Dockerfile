@@ -14,6 +14,7 @@ RUN apt-get update \
     supervisor \
     dnsmasq \
     dnsutils \
+    jq \
 &&  apt-get clean \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
