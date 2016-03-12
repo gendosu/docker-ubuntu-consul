@@ -14,3 +14,8 @@ RUN echo "strict-order" >> /etc/dnsmasq.conf
 
 RUN echo "dns-nameservers 127.0.0.1" >> /etc/network/interfaces.d/localhost.conf
 RUN echo "nameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/localhost.conf
+
+ADD supervisor/conf.d/nginx.conf /etc/supervisor/conf.d
+
+COPY testdir.tgz /usr/share/nginx/html
+ADD manifest.yml /usr/share/nginx/html

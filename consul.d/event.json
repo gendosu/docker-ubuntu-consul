@@ -1,0 +1,14 @@
+{
+  "watches": [
+    {
+      "type": "event",
+      "name": "deploy",
+      "handler": "/usr/local/bin/stretcher"
+    },
+    {
+      "type": "service",
+      "service": "web",
+      "handler": "/usr/local/bin/stretcher"
+    }
+  ]
+}

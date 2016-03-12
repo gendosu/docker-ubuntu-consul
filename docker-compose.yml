@@ -9,6 +9,7 @@ services:
       - "127.0.0.1"
       - "8.8.8.8"
     ports:
+      - "80:80"
       - "53:53/udp"
       - "53:53/tcp"
       - "8500:8500"
@@ -49,3 +50,23 @@ services:
       - server
     # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
     command: /usr/bin/supervisord -n
+
+  # client3:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-client
+  #   # image: gendosu/ubuntu-consul
+  #   links:
+  #     - server
+  #   # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+  #   command: /usr/bin/supervisord -n
+  #
+  # client4:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile-client
+  #   # image: gendosu/ubuntu-consul
+  #   links:
+  #     - server
+  #   # command: consul agent -data-dir /tmp/consul -config-dir /etc/consul.d -join server
+  #   command: /usr/bin/supervisord -n
